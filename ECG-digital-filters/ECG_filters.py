@@ -69,24 +69,3 @@ def filter_all(sample_data, sample_freq, order=5):
     c = lfilter(l, k, b)
 
     return z
-
-
-ecg = np.loadtxt('data.csv', skiprows=0)
-data = ecg
-
-sample_freq = 100000
-high_ctf = 0.9
-low_ctf = 0.9
-line_power = 900
-order = 100
-
-plt.figure(1)
-x1 = plt.subplot(211)
-plt.plot(ecg)
-x1.set_title("Raw ECG signal")
-
-filtered_signal = filter_all(ecg, sample_freq, order)
-x2 = plt.subplot(212)
-plt.plot(filtered_signal)
-x2.set_title("Clean ECG signal")
-plt.show()
